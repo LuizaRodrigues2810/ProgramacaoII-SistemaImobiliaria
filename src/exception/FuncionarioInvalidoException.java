@@ -1,4 +1,7 @@
 package exception;
 
-public class FuncionarioInvalidoException {
+public class FuncionarioInvalidoException extends Exception{
+    public FuncionarioInvalidoException(String mensagem){
+        super(mensagem);
+    }
 }

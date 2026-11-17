@@ -1,4 +1,7 @@
 package exception;
 
-public class ImovelInvalidoException {
+public class ImovelInvalidoException extends Exception{
+    public ImovelInvalidoException(String mensagem){
+        super(mensagem);
+    }
 }
