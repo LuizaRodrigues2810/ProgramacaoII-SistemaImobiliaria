@@ -17,4 +17,10 @@ public class Funcionario {
     private String usuarioLogin;
     private String senhaCriptografada;
 
+    //criar o construtor, getters e setters
+
+    public Double calcularSalarioTotal(){}
+    public String criptografarSenha(){}
+    public void autenticar(){}
+
 }

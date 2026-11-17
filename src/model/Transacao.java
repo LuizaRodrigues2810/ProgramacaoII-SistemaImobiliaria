@@ -14,4 +14,11 @@ public class Transacao {
     private Imovel imovel;
     private ClienteUsuario clienteUsuario;
     private Funcionario funcionario;
+
+    //criar o construtor, getters e setters
+
+    public static int gerarProximoNumeroContrato(){}
+    public void setNroContrato(){}
+    public void calcularRepasses(){}
+    public void validarFormaPagamento(){}
 }

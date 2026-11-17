@@ -11,4 +11,8 @@ public abstract class Cliente {
     private String sexo;
     private String estadoCivil;
     private String profissao;
+
+    //criar o construtor, getters e setters
+
+    public void adicionarTelefone(){}
 }

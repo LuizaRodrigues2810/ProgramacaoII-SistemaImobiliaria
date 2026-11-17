@@ -16,4 +16,13 @@ public abstract class Imovel {
     private Endereco endereco;
     private Double valorSugerido;
     private List<ClienteProprietario> proprietarios;
+
+    //precisa criar construtor, getters e setters
+
+    public String gerarFichaDetalhada(){
+
+    }
+    public  void alterarSituacao(){}
+    public void alterarFinalidade(){}
+    public Boolean validarCaracteristicas(){}
 }
