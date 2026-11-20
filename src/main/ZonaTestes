@@ -1,0 +1,74 @@
+import model.Endereco;
+
+    public static void main(String[] args) {
+        IO.println("\n---------------TESTES COM ENDEREÇOS---------------\n");
+
+        IO.println("\n----------------Casos válidos---------------\n");
+
+        Endereco comComplemento = new Endereco(
+                "Rua das Flores", "120", "Apto 302, Bloco B",
+                "Centro", "Marabá", "PA", "68500-000"
+        );
+        System.out.println("OK - Com complemento: " + comComplemento);
+
+        Endereco semComplementoNull = new Endereco(
+                "Av. Brasil", "450", null,
+                "Cidade Nova", "Marabá", "PA", "68501-100"
+        );
+        System.out.println("OK - Complemento null: " + semComplementoNull);
+
+        Endereco complementoVazio = new Endereco(
+                "Rua da Harmonia", "25", "",
+                "Novo Horizonte", "Marabá", "PA", "68501-500"
+        );
+        System.out.println("OK - Complemento vazio: " + complementoVazio);
+
+        Endereco complementoEspacos = new Endereco(
+                "Travessa da Paz", "88", "   ",
+                "Liberdade", "Marabá", "PA", "68502-200"
+        );
+        System.out.println("OK - Complemento em branco: " + complementoEspacos);
+
+        Endereco numeroSemNumero = new Endereco(
+                "Estrada do Rio", "S/N", "Casa dos fundos",
+                "São Félix", "Marabá", "PA", "68504-400"
+        );
+        System.out.println("OK - Número S/N: " + numeroSemNumero);
+
+        System.out.println("\n--- Testes de campos obrigatórios inválidos (1 por vez) ---");
+
+        // 1. Logradouro
+        testarInvalido("Logradouro em branco", "", "10", null, "Centro", "Marabá", "PA", "68500-000");
+        testarInvalido("Logradouro null", null, "10", null, "Centro", "Marabá", "PA", "68500-000");
+
+        // 2. Número
+        testarInvalido("Número em branco", "Rua A", "   ", null, "Centro", "Marabá", "PA", "68500-000");
+        testarInvalido("Número null", "Rua A", null, null, "Centro", "Marabá", "PA", "68500-000");
+
+        // 4. Bairro
+        testarInvalido("Bairro em branco", "Rua A", "10", null, "   ", "Marabá", "PA", "68500-000");
+        testarInvalido("Bairro null", "Rua A", "10", null, null, "Marabá", "PA", "68500-000");
+
+        // 5. Cidade
+        testarInvalido("Cidade em branco", "Rua A", "10", null, "Centro", "", "PA", "68500-000");
+        testarInvalido("Cidade null", "Rua A", "10", null, "Centro", null, "PA", "68500-000");
+
+        // 6. Estado
+        testarInvalido("Estado em branco", "Rua A", "10", null, "Centro", "Marabá", "  ", "68500-000");
+        testarInvalido("Estado null", "Rua A", "10", null, "Centro", "Marabá", null, "68500-000");
+
+        // 7. CEP
+        testarInvalido("CEP em branco", "Rua A", "10", null, "Centro", "Marabá", "PA", "");
+        testarInvalido("CEP null", "Rua A", "10", null, "Centro", "Marabá", "PA", null);
+    }
+
+    private static void testarInvalido(String cenario, String logradouro, String numero,
+                                       String complemento, String bairro, String cidade,
+                                       String estado, String cep) {
+        try {
+            Endereco endereco = new Endereco(logradouro, numero, complemento, bairro, cidade, estado, cep);
+            System.out.println("FALHOU [" + cenario + "]: aceitou endereço inválido -> " + endereco);
+        } catch (IllegalArgumentException e) {
+            System.out.println("PASSOU [" + cenario + "]: bloqueou (" + e.getMessage() + ")");
+        }
+    }
