@@ -1,5 +1,7 @@
 import model.Endereco;
 
+
+
     public static void main(String[] args) {
         IO.println("\n---------------TESTES COM ENDEREÇOS---------------\n");
 
