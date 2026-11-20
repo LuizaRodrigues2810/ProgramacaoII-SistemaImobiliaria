@@ -1,6 +1,6 @@
 import model.Endereco;
 
-
+// É um arquivo temporário para testar as classes que estão sendo refatoradas
 
     public static void main(String[] args) {
         IO.println("\n---------------TESTES COM ENDEREÇOS---------------\n");
